@@ -20,21 +20,18 @@ type LibraryAPI struct {
 	userAgent string
 
 	baseurl string
-	client  *http.Client
 }
 
 func NewDefaultLibraryAPI() *LibraryAPI {
 	return NewLibraryAPI(
 		MusicHandlersURL,
-		http.DefaultClient,
 	)
 }
 
-func NewLibraryAPI(baseurl string, client *http.Client) *LibraryAPI {
+func NewLibraryAPI(baseurl string) *LibraryAPI {
 	return &LibraryAPI{
 		userAgent: "curl/7.68.0",
 		baseurl:   baseurl,
-		client:    client,
 	}
 }
 

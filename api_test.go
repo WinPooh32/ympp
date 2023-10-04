@@ -2,7 +2,6 @@ package ympp
 
 import (
 	"context"
-	"net/http"
 	"reflect"
 	"testing"
 )
@@ -21,7 +20,7 @@ func TestLibraryAPI_GetOwnerInfo(t *testing.T) {
 	}{
 		{
 			name: "existing owner info",
-			api:  NewLibraryAPI(MusicHandlersURL, &http.Client{}),
+			api:  NewLibraryAPI(MusicHandlersURL),
 			args: args{
 				ctx:   context.Background(),
 				login: "winpooh32",
@@ -39,7 +38,7 @@ func TestLibraryAPI_GetOwnerInfo(t *testing.T) {
 		},
 		{
 			name: "not found",
-			api:  NewLibraryAPI(MusicHandlersURL, &http.Client{}),
+			api:  NewLibraryAPI(MusicHandlersURL),
 			args: args{
 				ctx:   context.Background(),
 				login: "winpooh32222",
@@ -76,7 +75,7 @@ func TestLibraryAPI_GetLibrary(t *testing.T) {
 	}{
 		{
 			name: "info",
-			api:  NewLibraryAPI(MusicHandlersURL, &http.Client{}),
+			api:  NewLibraryAPI(MusicHandlersURL),
 			args: args{
 				ctx:   context.Background(),
 				login: "winpooh32",
@@ -85,7 +84,7 @@ func TestLibraryAPI_GetLibrary(t *testing.T) {
 		},
 		{
 			name: "info not found",
-			api:  NewLibraryAPI(MusicHandlersURL, &http.Client{}),
+			api:  NewLibraryAPI(MusicHandlersURL),
 			args: args{
 				ctx:   context.Background(),
 				login: "winpooh32312304",
@@ -122,7 +121,7 @@ func TestLibraryAPI_GetPlaylist(t *testing.T) {
 	}{
 		{
 			name: "tracklist found",
-			api:  NewLibraryAPI(MusicHandlersURL, &http.Client{}),
+			api:  NewLibraryAPI(MusicHandlersURL),
 			args: args{
 				ctx:      context.Background(),
 				login:    "winpooh32",
@@ -132,7 +131,7 @@ func TestLibraryAPI_GetPlaylist(t *testing.T) {
 		},
 		{
 			name: "not found",
-			api:  NewLibraryAPI(MusicHandlersURL, &http.Client{}),
+			api:  NewLibraryAPI(MusicHandlersURL),
 			args: args{
 				ctx:      context.Background(),
 				login:    "winpooh323123432",
